@@ -219,6 +219,11 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
      * @since 1.0.0
      */
     public function handle_waave_request( $data ) {
+        $this->log( PHP_EOL
+            . '----------'
+            . PHP_EOL . 'Waave call received'
+            . PHP_EOL . '----------'
+        );
         $this->log( 'Get waave data' );
         $this->log( 'Waave Data: ' . print_r( $data, true ) );
 
@@ -240,6 +245,8 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
             $this->log( 'Waave validation error.' );
             return;
         }
+
+        $this->log( 'Check status and update order' );
 
         $order_id = absint( $data['reference_id'] );
         $order    = wc_get_order( $order_id );
@@ -270,9 +277,11 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
         $header_signature = isset( $_SERVER['HTTP_X_API_SIGNATURE'] ) ? $_SERVER['HTTP_X_API_SIGNATURE'] : '';
 
         if ($signature === $header_signature) {
+            $this->log( 'Signature is valid.' );
             return true;
         }
 
+        $this->log( 'Signature is invalid.' );
         return false;
     }
 
@@ -287,14 +296,22 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
         $order    = wc_get_order( $order_id );
 
         if ( ! $order ) {
+            $this->log( 'Order is not exist.' );
             return false;
         }
 
         $amount = $order->get_total();
         if ($amount != $data['amount']) {
+            $this->log( 'Amount is invalid.' );
             return false;
         }
 
+        if ( 'completed' == $order->get_status() ) {
+            $this->log( 'Order has already been processed' );
+            return false;
+        }
+
+        $this->log( 'Response data is valid.' );
         return true;
     }
 
@@ -311,7 +328,7 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
     /**
      * Handle payment pending
      */
-    private function handle_payment_pending( $data, $order ) {
+    private function handle_payment_pending( $order ) {
         $this->log( '- Pending' );
         $order->update_status( 'on-hold', __( 'This payment is pending via Waave.', 'woocommerce-gateway-waave' ) );
     }
@@ -333,6 +350,6 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
             $this->logger = new WC_Logger();
         }
 
-        $this->logger->info( 'waave', $message );
+        $this->logger->add( 'waave', $message );
     }
 }
