@@ -242,7 +242,7 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
         }
 
         if ( $error ) {
-            $this->log( 'Waave validation error.' );
+            $this->log( 'Waave validation has error.' );
             return;
         }
 
@@ -273,7 +273,7 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
         $uri        = $this->callback_url;
         $body       = json_encode($data);
 
-        $signature = hash( "sha256", $secretKey . $uri . $body );
+        $signature        = hash( "sha256", $secretKey . $uri . $body );
         $header_signature = isset( $_SERVER['HTTP_X_API_SIGNATURE'] ) ? $_SERVER['HTTP_X_API_SIGNATURE'] : '';
 
         if ($signature === $header_signature) {
@@ -282,6 +282,9 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
         }
 
         $this->log( 'Signature is invalid.' );
+        $this->log( 'My secret key: ' . $secretKey );
+        $this->log( 'My uri: ' . $uri );
+        $this->log( 'My body: ' . $body );
         return false;
     }
 
