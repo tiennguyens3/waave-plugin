@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WooCommerce Waave Gateway
- * Description: Take credit card payments on your store using Waave.
+ * Description: Receive payments using Waave.
  * Author: WooCommerce
  * Author URI: https://woocommerce.com/
  * Version: 1.0.1
