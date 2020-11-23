@@ -13,7 +13,7 @@
  */
 class WC_Gateway_Waave extends WC_Payment_Gateway {
 
-    const PROD_URL = 'https://staging-pg.getwaave.co/waavepay/checkout';
+    const PROD_URL = 'https://pg.getwaave.co/waavepay/checkout';
     const SANDBOX_URL = 'https://staging-pg.getwaave.co/waavepay/checkout';
 
     protected $logger;
