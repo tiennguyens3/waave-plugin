@@ -147,13 +147,13 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
             'venue_id'     => $this->venue_id
         );
 
-        $payfast_args_array = array();
+        $waave_args_array = array();
         foreach ( $data_to_send as $key => $value ) {
-            $payfast_args_array[] = '<input type="hidden" name="' . esc_attr( $key ) . '" value="' . esc_attr( $value ) . '" />';
+            $waave_args_array[] = '<input type="hidden" name="' . esc_attr( $key ) . '" value="' . esc_attr( $value ) . '" />';
         }
 
         return '<form action="' . esc_url( $this->url ) . '" method="get" id="waave_payment_form">
-                ' . implode( '', $payfast_args_array ) . '
+                ' . implode( '', $waave_args_array ) . '
                 <input type="submit" class="button-alt" id="submit_waave_payment_form" value="' . __( 'Pay via Waave', 'woocommerce-gateway-waave' ) . '" /> <a class="button cancel" href="' . $order->get_cancel_order_url() . '">' . __( 'Cancel order &amp; restore cart', 'woocommerce-gateway-waave' ) . '</a>
                 <script type="text/javascript">
                     jQuery(function(){
