@@ -282,9 +282,10 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
         }
 
         $this->log( 'Signature is invalid.' );
-        $this->log( 'My secret key: ' . $secretKey );
-        $this->log( 'My uri: ' . $uri );
-        $this->log( 'My body: ' . $body );
+        $this->log( 'Woo signature: ' . $signature );
+        $this->log( 'Woo secret key: ' . $secretKey );
+        $this->log( 'Woo uri: ' . $uri );
+        $this->log( 'Woo body: ' . $body );
         return false;
     }
 
