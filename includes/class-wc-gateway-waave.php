@@ -105,7 +105,7 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
      * @return string
      */
     public function get_icon() {
-        $icons_str = '<img src="' . WC_WAAVE_PLUGIN_URL . '/assets/images/logo.png" class="" alt="Waave" />';
+        $icons_str = '<img src="' . WC_WAAVE_PLUGIN_URL . '/assets/images/logo.png" class="" width="150" alt="Waave" />';
 
         return apply_filters( 'woocommerce_gateway_icon', $icons_str, $this->id );
     }
