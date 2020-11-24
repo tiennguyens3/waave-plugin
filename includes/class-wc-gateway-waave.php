@@ -140,7 +140,7 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
 
             // Order details
             'amount'       => $order->get_total(),
-            'reference_id' => $order->get_order_number(),
+            'reference_id' => $order->get_id(),
             'currency'     => $order->get_currency(),
 
             // Inconsitent data
