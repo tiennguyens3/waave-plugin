@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WooCommerce Waave Gateway
- * Description: Receive payments using Waave.
+ * Description: WAAVE Checkout (Debit Cards / Credit Cards).
  * Author: WooCommerce
  * Author URI: https://woocommerce.com/
  * Version: 1.0.1
