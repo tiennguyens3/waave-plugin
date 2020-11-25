@@ -3,7 +3,7 @@
 /**
  * Waave Payment Gateway
  *
- * Provides an Waave Payment Gateway;
+ * WAAVE Checkout (Debit Cards / Credit Cards)
  * We load it later to ensure WC is loaded first since we're extending it.
  *
  * @class       WC_Gateway_Waave
@@ -24,7 +24,7 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
     public function __construct() {
         $this->id                 = 'waave_gateway';
         $this->method_title       = __( 'Waave', 'wc-gateway-waave' );
-        $this->method_description = __( 'Allows waave payments.', 'wc-gateway-waave' );
+        $this->method_description = __( 'WAAVE Checkout (Debit Cards / Credit Cards)', 'wc-gateway-waave' );
       
         // Load the settings.
         $this->init_form_fields();
@@ -44,7 +44,7 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
 
         // Common fields
         $this->title        = 'Waave Payment';
-        $this->description  = 'Waave payment gateway.';
+        $this->description  = 'WAAVE Checkout (Debit Cards / Credit Cards)';
       
         // Actions
         add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
