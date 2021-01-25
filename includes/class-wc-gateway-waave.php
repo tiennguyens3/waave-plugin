@@ -24,7 +24,7 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
     public function __construct() {
         $this->id                 = 'waave_gateway';
         $this->method_title       = __( 'Waave', 'wc-gateway-waave' );
-        $this->method_description = __( 'WAAVE Checkout (Debit Cards / Credit Cards)', 'wc-gateway-waave' );
+        $this->method_description = __( 'WAAVE Checkout (Debit Cards/Credit Cards - US & International some restrictions apply. Max $2500 daily. Help chat available throughout the checkout process.)', 'wc-gateway-waave' );
       
         // Load the settings.
         $this->init_form_fields();
@@ -44,7 +44,7 @@ class WC_Gateway_Waave extends WC_Payment_Gateway {
 
         // Common fields
         $this->title        = 'Waave Payment';
-        $this->description  = 'WAAVE Checkout (Debit Cards / Credit Cards)';
+        $this->description  = 'WAAVE Checkout (Debit Cards/Credit Cards - US & International some restrictions apply. Max $2500 daily. Help chat available throughout the checkout process.)';
       
         // Actions
         add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );

@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: WooCommerce Waave Gateway
- * Description: WAAVE Checkout (Debit Cards / Credit Cards).
+ * Description: WAAVE Checkout (Debit Cards/Credit Cards - US & International some restrictions apply. Max $2500 daily. Help chat available throughout the checkout process.)
  * Author: WooCommerce
  * Author URI: https://woocommerce.com/
  * Version: 1.0.1
