@@ -18,7 +18,6 @@ defined( 'ABSPATH' ) or exit;
 
 define( 'WC_WAAVE_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 define( 'WC_WAAVE_PLUGIN_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
-define( 'WP_AUTO_UPDATE_CORE', false );
 
 
 // Make sure WooCommerce is active
