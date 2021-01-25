@@ -5,7 +5,7 @@
  * Description: WAAVE Checkout (Debit Cards/Credit Cards - US & International some restrictions apply. Max $2500 daily. Help chat available throughout the checkout process.)
  * Author: WooCommerce
  * Author URI: https://woocommerce.com/
- * Version: 1.0.1
+ * Version: 1.0.2
  * Requires at least: 4.6
  * WC requires at least: 3.0
  * WC tested up to: 4.3
@@ -18,6 +18,7 @@ defined( 'ABSPATH' ) or exit;
 
 define( 'WC_WAAVE_PLUGIN_URL', untrailingslashit( plugins_url( basename( plugin_dir_path( __FILE__ ) ), basename( __FILE__ ) ) ) );
 define( 'WC_WAAVE_PLUGIN_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
+define( 'WP_AUTO_UPDATE_CORE', false );
 
 
 // Make sure WooCommerce is active
